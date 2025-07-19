@@ -1,0 +1,6 @@
+(ns sandbox.core)
+
+(defmacro do-side-effect []
+  (prn "expanding do-side-effect:" (gensym)))
+
+(do-side-effect)
