@@ -4,3 +4,5 @@
   (prn "expanding do-side-effect:" (gensym)))
 
 (do-side-effect)
+
+(defn -main [])
