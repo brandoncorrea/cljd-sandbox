@@ -1,3 +1,3 @@
 # ClojureDart Sandbox
 
-Experimenting
+Experimental code in ClojureDart
