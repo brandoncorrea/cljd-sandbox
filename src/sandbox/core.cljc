@@ -1,8 +1,16 @@
 (ns sandbox.core)
 
-(defmacro do-side-effect []
-  (prn "expanding do-side-effect:" (gensym)))
+(defmacro defsym [value]
+  `(def ~(gensym "defsym") ~value))
 
-(do-side-effect)
+(defmacro list-syms []
+  (let [{:keys [current-ns] :as nses} (:nses &env)
+        symbols (->> (nses current-ns)
+                     keys
+                     (filter symbol?))]
+    `(list ~@symbols)))
 
-(defn -main [])
+(defsym "the value")
+
+(defn main []
+  (prn (list-syms)))
